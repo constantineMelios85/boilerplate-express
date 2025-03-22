@@ -34,12 +34,17 @@ app.get('/now', (req, res, next) => {
 })
 
 
+app.get('/:word/echo', (req, res, next) => {
+    const { word } = req.params
+    res.send({echo: word})
+    next()
+})
 
 
-
-
-
-
+app.get('/name', (req, res, next) => {
+    const {first, last} = req.query || {};
+    res.send({name: `${first} ${last}`})
+})
 
 
 
